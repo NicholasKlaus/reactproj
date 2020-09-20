@@ -14,7 +14,7 @@ function TodoItem({ el }) {
                 />
                 { el.value }
             </div>
-            <Button variant="outline-danger">&times;</Button>{' '}
+            <Button onClick={() => console.log("deleted", el.id)} variant="outline-danger">&times;</Button>{' '}
         </li>
     )
 }
