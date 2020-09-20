@@ -5,6 +5,8 @@ function TodoList(){
     return(
         <ul className='taskList'>
             <TodoItem />
+            <TodoItem />
+            <TodoItem />
         </ul>
     )
 }

@@ -1,11 +1,13 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'react-bootstrap';
+
 
 function TodoItem() {
     return (
         <li className='listItem'>
-            <input type='checkbox' className='input'/>
-
+            <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+            
             <Button variant="outline-danger">&times;</Button>{' '}
         </li>
     )

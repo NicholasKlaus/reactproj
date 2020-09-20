@@ -55,18 +55,6 @@ code {
   margin-bottom: .5rem;
 }
 
-.input {
-  margin-right: 1rem;
-  width: 100%;
-}
 
-.done {
-  text-decoration: line-through;
-}
 
-.addForm {
-  margin-bottom: 1rem;
-  display: flex;
-  justify-content: space-between;
-  
-}
+
