@@ -1,12 +1,14 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-function TodoList(){
+function TodoList(props){
     return(
         <ul className='taskList'>
-            <TodoItem />
-            <TodoItem />
-            <TodoItem />
+            {props._arr.map(el => {
+               return (
+                   <TodoItem el={el} key={el.id} />
+                )
+           })}
         </ul>
     )
 }
