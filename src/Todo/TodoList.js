@@ -1,12 +1,12 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-function TodoList(props){
+function TodoList({ data }){
     return(
         <ul className='taskList'>
-            {props._arr.map(el => {
+            {data.map((el, key) => {
                return (
-                   <TodoItem el={el} key={el.id} />
+                   <TodoItem el={el} key={key} />
                 )
            })}
         </ul>

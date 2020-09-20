@@ -8,19 +8,19 @@ function App() {
     {
       id: 1,
       value: "Play World of Tanks with friends",
-      complited: false,
+      completed: false,
     },
     {
       id: 2,
       value: "Go to the gas station to refuel the car",
-      complited: false,
+      completed: false,
     },
     {
       id: 3,
       value: "Finish reading the book",
-      complited: false,
+      completed: false,
     },
-  ]
+  ];
 
 
   return (
@@ -31,7 +31,7 @@ function App() {
 
         <div className='container'>
           <AddTodo/>
-          <TodoList _arr={_arr}/>
+          <TodoList data={_arr}/>
         </div>
       </div>
   );
