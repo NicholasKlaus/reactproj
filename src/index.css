@@ -55,6 +55,12 @@ code {
   margin-bottom: .5rem;
 }
 
+.wrapper{
+  display: flex;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
 
 
