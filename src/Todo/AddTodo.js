@@ -19,7 +19,7 @@ function AddTodo() {
                     aria-label="Default"
                     aria-describedby="inputGroup-sizing-default"
                 />
-                <Button variant="outline-success">Add task</Button>
+                <Button onClick={() => console.log(inputValue)} variant="outline-success">Add task</Button>
             </InputGroup>
             
             

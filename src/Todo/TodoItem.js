@@ -6,7 +6,7 @@ import { InputGroup } from 'react-bootstrap';
 function TodoItem({ el }) {
 
     return (
-        <li className='listItem'>
+        <li className='task-list__item'>
             <div className='wrapper'>
                 <InputGroup.Checkbox 
                     onChange={() => console.log(el.id)} 
