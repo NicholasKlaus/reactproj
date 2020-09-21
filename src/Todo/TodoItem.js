@@ -12,7 +12,7 @@ function TodoItem({ el }) {
                     onChange={() => console.log(el.id)} 
                     aria-label="Checkbox for following text input" 
                 />
-                { el.value }
+                <div className='text-wrap'>{ el.value }</div>
             </div>
             <Button onClick={() => console.log("deleted", el.id)} variant="outline-danger">&times;</Button>{' '}
         </li>
