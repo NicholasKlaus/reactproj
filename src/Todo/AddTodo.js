@@ -23,11 +23,11 @@ function AddTodo(onCreate) {
                     <InputGroup.Text id="inputGroup-sizing-default">Todo</InputGroup.Text>
                 </InputGroup.Prepend>
                 <FormControl
-                    onInput={(e) => setInputValue(e.target.value)}
+                    onChange={event => setInputValue(event.target.value)}
                     aria-label="Default"
                     aria-describedby="inputGroup-sizing-default"
                 />
-                <Button onClick={submit} variant="outline-success">Add task</Button>
+                <Button onClick={() => submit} variant="outline-success">Add task</Button>
             </InputGroup>
             
             
