@@ -27,7 +27,7 @@ function App() {
  
     function addTodo(value){
       setArr([..._arr,value]);
-     
+     console.log(value);
     }
 
   return (

@@ -8,7 +8,7 @@ import { FormControl } from 'react-bootstrap';
 function AddTodo({onCreate}) {
     const [inputValue, setInputValue] = useState('')
 
-  
+ 
 
     return(
         <div>
@@ -21,7 +21,7 @@ function AddTodo({onCreate}) {
                     aria-label="Default"
                     aria-describedby="inputGroup-sizing-default"
                 />
-                <Button onClick={() => onCreate({inputValue}) } variant="outline-success">Add task</Button>
+                <Button onClick={() => onCreate({value:inputValue, id: Date.now, completed: false}) } variant="outline-success">Add task</Button>
             </InputGroup>
             
             
