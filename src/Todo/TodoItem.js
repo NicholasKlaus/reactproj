@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Button } from 'react-bootstrap';
 import { InputGroup } from 'react-bootstrap';
-
+import Context from '../context';
 
 function TodoItem({ el }) {
+    const {removeTodo} = useContext(Context);
+
 
     return (
         <li className='task-list__item'>
@@ -14,7 +16,7 @@ function TodoItem({ el }) {
                 />
                 <div className='text-wrap'>{ el.value }</div>
             </div>
-            <Button onClick={() => console.log("deleted", el.id)} variant="outline-danger">&times;</Button>{' '}
+            <Button onClick={() => removeTodo(el.id)} variant="outline-danger">&times;</Button>{' '}
         </li>
     )
 }
