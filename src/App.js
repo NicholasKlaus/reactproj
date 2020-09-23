@@ -26,11 +26,8 @@ function App() {
 
  
     function addTodo(value){
-      setArr(_arr.concat([{
-        id: Date.now,
-        value,
-        completed: false,
-      }]))
+      setArr([..._arr,value]);
+     
     }
 
   return (

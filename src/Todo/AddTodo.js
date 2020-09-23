@@ -5,16 +5,10 @@ import { FormControl } from 'react-bootstrap';
 
 
 
-function AddTodo(onCreate) {
-    const [inputValue, setInputValue] = useState('');
+function AddTodo({onCreate}) {
+    const [inputValue, setInputValue] = useState('')
 
-    function submit(event){
-        event.preventDefault();
-
-        if (inputValue.trim()){
-            onCreate(inputValue);
-        }
-    }
+  
 
     return(
         <div>
@@ -27,7 +21,7 @@ function AddTodo(onCreate) {
                     aria-label="Default"
                     aria-describedby="inputGroup-sizing-default"
                 />
-                <Button onClick={() => submit} variant="outline-success">Add task</Button>
+                <Button onClick={() => onCreate({inputValue}) } variant="outline-success">Add task</Button>
             </InputGroup>
             
             
