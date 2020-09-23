@@ -21,7 +21,7 @@ function AddTodo({onCreate}) {
                     aria-label="Default"
                     aria-describedby="inputGroup-sizing-default"
                 />
-                <Button onClick={() => onCreate({value:inputValue, id: Date.now, completed: false}) } variant="outline-success">Add task</Button>
+                <Button onClick={() => onCreate({value:inputValue, id: Date.now(), completed: false}) } variant="outline-success">Add task</Button>
             </InputGroup>
             
             

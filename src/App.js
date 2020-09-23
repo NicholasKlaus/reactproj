@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import TodoList from './Todo/TodoList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddTodo from './Todo/AddTodo';
-import Context from './context';
+
 
 function App() {
   const [_arr, setArr] = useState(
@@ -35,18 +35,17 @@ function App() {
     }
 
   return (
-      <Context.Provider value={{removeTodo}}>
-        <div className="app">
-          <header className='header'>
-           <p className='header_title'>Todo App</p>
-          </header>
+    <div className="app">
+      <header className='header'>
+        <p className='header_title'>Todo App</p>
+      </header>
 
-          <div className='container'>
-            <AddTodo onCreate={addTodo} />
-            <TodoList data={_arr}/>
-          </div>
-        </div>
-      </Context.Provider>
+      <div className='container'>
+        <AddTodo onCreate={addTodo} />
+
+        <TodoList data={_arr} del={removeTodo} />
+      </div>
+    </div>
   );
 }
 
