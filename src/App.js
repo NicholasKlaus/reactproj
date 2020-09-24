@@ -30,9 +30,14 @@ function App() {
       setArr([..._arr,value]);
     }
 
-    function removeTodo(id){
+    function toggleTodo(id){
+      console.log('element id', id);
+    }
+
+    function del(id){
       setArr(_arr.filter(el => el.id !== id));
     }
+    
 
   return (
     <div className="app">
@@ -43,7 +48,7 @@ function App() {
       <div className='container'>
         <AddTodo onCreate={addTodo} />
 
-        <TodoList data={_arr} del={removeTodo} />
+        <TodoList data={_arr} onToggle={toggleTodo} removeTask={del} />
       </div>
     </div>
   );
