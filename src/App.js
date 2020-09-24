@@ -5,7 +5,7 @@ import AddTodo from './Todo/AddTodo';
 
 
 function App() {
-  const [_arr, setArr] = useState(
+  let [_arr, setArr] = useState(
     [
       {
         id: 1,
@@ -26,15 +26,21 @@ function App() {
   );
 
  
-    function addTodo(value){
+    function addTodo(value) {
       setArr([..._arr,value]);
     }
 
-    function toggleTodo(id){
-      console.log('element id', id);
+    function toggleTodo(id) {
+      _arr = _arr.map(el => {
+        if (el.id === id){
+          el.completed = !el.completed;
+        }
+        return el;
+        
+      })
     }
 
-    function del(id){
+    function del(id) {
       setArr(_arr.filter(el => el.id !== id));
     }
     
