@@ -31,13 +31,15 @@ function App() {
     }
 
     function toggleTodo(id) {
-      _arr = _arr.map(el => {
-        if (el.id === id){
-          el.completed = !el.completed;
-        }
-        return el;
+      setArr(
+        _arr.map(el => {
+          if (el.id === id){
+           el.completed = !el.completed;
+          }
+          return el;
         
-      })
+        })
+      );
     }
 
     function del(id) {

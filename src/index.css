@@ -68,6 +68,6 @@ code {
 
 
 .checked{
-  color: green;
-  background-color: green;
+  
+  background-color: #ccc;
 }
