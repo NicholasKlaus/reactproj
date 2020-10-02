@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import TodoList from './Todo/TodoList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddTodo from './Todo/AddTodo';
@@ -24,12 +24,27 @@ function App() {
       },
     ]
   );
+  //let _dataArray = localStorage.getItem('_data') ? JSON.parse(localStorage.getItem('_data')) : _arr;
+    
+    useEffect(() => {
+      const _data = localStorage.getItem('_data') ? JSON.parse(localStorage.getItem('_data')) : [];
+      setArr(_data);
+      console.log("_data is", _data);
+    }, []);
 
- 
+    useEffect( () => {
+      localStorage.setItem('_data', JSON.stringify(_arr));
+    }, [_arr]);
+
+    console.log("_arr is", _arr);
+    
+
     function addTodo(value) {
-      setArr([..._arr,value]);
+      setArr([..._arr, value]);
+      
     }
-
+    
+      
     function toggleTodo(id) {
       setArr(
         _arr.map(el => {
@@ -56,7 +71,7 @@ function App() {
       <div className='container'>
         <AddTodo onCreate={addTodo} />
 
-        <TodoList data={_arr} onToggle={toggleTodo} removeTask={del} />
+        <TodoList data={_arr}  onToggle={toggleTodo} removeTask={del} />
       </div>
     </div>
   );
