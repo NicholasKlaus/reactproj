@@ -24,43 +24,16 @@ function App() {
       },
     ]
   );
-  //let _dataArray = localStorage.getItem('_data') ? JSON.parse(localStorage.getItem('_data')) : _arr;
-    
-    useEffect(() => {
-      const _data = localStorage.getItem('_data') ? JSON.parse(localStorage.getItem('_data')) : [];
-      setArr(_data);
-      console.log("_data is", _data);
-    }, []);
+  
+  useEffect(() => {
+    const _data = localStorage.getItem('_data') ? JSON.parse(localStorage.getItem('_data')) : [];
+    setArr(_data);
+    console.log("_data is", _data);
+  }, []);
 
-    useEffect( () => {
-      localStorage.setItem('_data', JSON.stringify(_arr));
-    }, [_arr]);
-
-    console.log("_arr is", _arr);
-    
-
-    function addTodo(value) {
-      setArr([..._arr, value]);
-      
-    }
-    
-      
-    function toggleTodo(id) {
-      setArr(
-        _arr.map(el => {
-          if (el.id === id){
-           el.completed = !el.completed;
-          }
-          return el;
-        
-        })
-      );
-    }
-
-    function del(id) {
-      setArr(_arr.filter(el => el.id !== id));
-    }
-    
+  useEffect( () => {
+    localStorage.setItem('_data', JSON.stringify(_arr));
+  }, [_arr]);
 
   return (
     <div className="app">
@@ -75,6 +48,28 @@ function App() {
       </div>
     </div>
   );
+    
+  function addTodo(value) {
+    setArr([..._arr, value]);
+    
+  }
+  
+    
+  function toggleTodo(id) {
+    setArr(
+      _arr.map(el => {
+        if (el.id === id) {
+         el.completed = !el.completed;
+        }
+        return el;
+      
+      })
+    );
+  }
+
+  function del(id) {
+    setArr(_arr.filter(el => el.id !== id));
+  }
 }
 
 export default App;

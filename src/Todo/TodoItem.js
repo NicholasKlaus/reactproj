@@ -4,16 +4,13 @@ import { InputGroup } from 'react-bootstrap';
 
 
 function TodoItem({ el, onChange, removeTodo }) {
-    const classes =[];
-    if (el.completed){
-        classes.push('checked');
-    }
     
     return (
         <li className= {`task-list__item ${(el.completed === true) ? 'checked' : ''}`} >
             <div className='wrapper' >
                 <InputGroup.Checkbox 
                     onChange={() => onChange(el.id)} 
+                    checked={el.completed}
                     aria-label="Checkbox for following text input" 
                     
                 />
