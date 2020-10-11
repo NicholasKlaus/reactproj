@@ -1,0 +1,54 @@
+.header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 20px 0;
+    padding: 0;
+    background-color: #6871f5; 
+    text-align: center;
+    color: #fff;
+}
+  
+.header_title {
+    font-size: 30px;
+    line-height: 30px;
+}
+  
+.container {
+    width: 1170px;
+    margin: 0 auto;
+    padding: 10px;
+}
+  
+.task-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+  
+.task-list__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1rem;
+    border: 1px solid #ccc;
+    margin-bottom: .5rem;
+}
+  
+.wrapper{
+    display: flex;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+  
+.text-wrap{
+    margin-left: 10px;
+}
+  
+  
+.checked{
+    
+    background-color: #ccc;
+}
