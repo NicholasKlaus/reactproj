@@ -11,6 +11,7 @@ function TodoItem({ el, onChange, removeTodo }) {
                 <InputGroup.Checkbox 
                     onChange={() => onChange(el.id)} 
                     checked={el.completed}
+                    className="checkbox"
                     aria-label="Checkbox for following text input" 
                     
                 />

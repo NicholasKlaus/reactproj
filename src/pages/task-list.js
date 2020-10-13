@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import TodoList from './Todo/TodoList';
+import TodoList from '../components/TaskListPage/Tasks/TodoList';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AddTodo from './Todo/AddTodo';
-import './taskListStyle.css';
+import AddTodo from '../components/TaskListPage/Tasks/AddTodo';
+import '../components/TaskListPage/taskListStyle.css';
 
 function Tasks() {
     let [_arr, setArr] = useState(
@@ -73,4 +73,4 @@ function Tasks() {
     }
   }
   
-  export default Tasks;
+export default Tasks;

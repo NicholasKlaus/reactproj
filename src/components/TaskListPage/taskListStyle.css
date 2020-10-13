@@ -47,8 +47,10 @@
     margin-left: 10px;
 }
   
-  
 .checked{
-    
     background-color: #ccc;
+}
+
+.checkbox{
+    cursor: pointer;
 }

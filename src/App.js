@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route, Link, Redirect} from 'react-router-dom';
 
-import Tasks from './pages/taskList/taskList';
-import Weather from './pages/weather/weather';
+import Tasks from './pages/task-list';
+import Weather from './pages/weather';
 
 function App() {
   
@@ -10,13 +10,13 @@ function App() {
     <div className="app">
       <Router>
         <Switch>
-          <Route path="/Tasks">
+          <Route path="/tasks">
             <Tasks />
           </Route>
-          <Route path="/Weather">
+          <Route path="/weather">
             <Weather />
           </Route>
-          <Redirect from='/' to='/Tasks'/>
+          <Redirect from='/' to='/tasks'/>
         </Switch>
       </Router>
     </div>

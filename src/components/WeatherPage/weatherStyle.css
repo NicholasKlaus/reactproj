@@ -16,8 +16,6 @@
 }
   
 .w-body{
-    width: 100%;
-    height: 100%;
     background: #8e45e0;
     background: linear-gradient(to left, #d7bae4 0%, #d470dd 36%, #8e45e0 100%);
 }
@@ -41,4 +39,18 @@
   
 .w-leftPanelList{
     list-style: none;
+}
+
+.cards-wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.w-card{
+    min-width: 100px;
+    min-height: 100px;
+    padding: 15px;
+    border: 1px solid black;
+    text-align: center;
 }
