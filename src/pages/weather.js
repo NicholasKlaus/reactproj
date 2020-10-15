@@ -4,15 +4,14 @@ import '../components/WeatherPage/weatherStyle.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row} from 'react-bootstrap';
 import {Col} from 'react-bootstrap';
+import Header from '../components/Header/header';
 
 
 export default function Weather() {
-
+   
     return (
         <div className="weather">
-            <header className='w-header'>
-                <p className='w-header_title'>Weather</p>
-            </header>
+            <Header />
     
             <div className="w-body">
                 <div className='container'>
@@ -54,49 +53,49 @@ export default function Weather() {
                     </Row>
                     <div className="cards-wrap">
                         <div className="w-card">
-                             <div className="w-card_body">
+                            <div className="w-card_body">
                                 <span>3pm</span>
                                 <h1>28 &deg;C</h1>
                                 <span>Monday</span>
                             </div>
                         </div>
                         <div className="w-card">
-                             <div className="w-card_body">
+                            <div className="w-card_body">
                                 <span>4pm</span>
                                 <h1>28 &deg;C</h1>
                                 <span>Tuesday</span>
                             </div>
                         </div>
                         <div className="w-card">
-                             <div className="w-card_body">
+                            <div className="w-card_body">
                                 <span>5pm</span>
                                 <h1>24 &deg;C</h1>
                                 <span>Wednesday</span>
                             </div>
                         </div>
                         <div className="w-card">
-                             <div className="w-card_body">
+                            <div className="w-card_body">
                                 <span>6pm</span>
                                 <h1>17 &deg;C</h1>
                                 <span>Thursday</span>
                             </div>
                         </div>
                         <div className="w-card">
-                             <div className="w-card_body">
+                            <div className="w-card_body">
                                 <span>7pm</span>
                                 <h1>11 &deg;C</h1>
                                 <span>Friday</span>
                             </div>
                         </div>
                         <div className="w-card">
-                             <div className="w-card_body">
+                            <div className="w-card_body">
                                 <span>8pm</span>
                                 <h1>11 &deg;C</h1>
                                 <span>Saturday</span>
                             </div>
                         </div>
                         <div className="w-card">
-                             <div className="w-card_body">
+                            <div className="w-card_body">
                                 <span>9pm</span>
                                 <h1>5 &deg;C</h1>
                                 <span>Sunday</span>

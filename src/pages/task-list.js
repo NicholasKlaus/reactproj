@@ -3,6 +3,7 @@ import TodoList from '../components/TaskListPage/Tasks/TodoList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddTodo from '../components/TaskListPage/Tasks/AddTodo';
 import '../components/TaskListPage/taskListStyle.css';
+import Header from '../components/Header/header';
 
 function Tasks() {
     let [_arr, setArr] = useState(
@@ -36,10 +37,8 @@ function Tasks() {
     }, [_arr]);
  
     return (
-      <div className="app">
-        <header className='header'>
-          <p className='header_title'>Todo App</p>
-        </header>
+      <div className="tasks">
+        <Header />
   
         <div className='container'>
           <AddTodo onCreate={addTodo} />
@@ -71,6 +70,6 @@ function Tasks() {
     function del(id) {
       setArr(_arr.filter(el => el.id !== id));
     }
-  }
+}
   
 export default Tasks;

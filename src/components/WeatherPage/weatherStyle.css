@@ -1,13 +1,7 @@
 .w-header {
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0 0 0;
-    padding: 0;
+    
     background-color: #7600ac;
-    text-align: center;
-    color: #fff;
+    
 }
   
 .w-header_title {
@@ -42,14 +36,14 @@
 }
 
 .cards-wrap{
+    padding: 50px 0 50px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .w-card{
-    min-width: 100px;
-    min-height: 100px;
+
     padding: 15px;
     border: 1px solid black;
     text-align: center;
