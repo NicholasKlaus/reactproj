@@ -25,11 +25,13 @@ function Tasks() {
         },
       ]
     );
+
+
     
     useEffect(() => {
       const _data = localStorage.getItem('_data') ? JSON.parse(localStorage.getItem('_data')) : [];
       setArr(_data);
-      console.log("_data is", _data);
+      
     }, []);
   
     useEffect( () => {
