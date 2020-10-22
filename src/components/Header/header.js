@@ -10,7 +10,7 @@ function Header({isWeather}){
     useEffect(function(){
         setClassName(isWeather === true ? 'w-header' : 'header');
     }, [isWeather])
-    console.log(isWeather);
+    
    
 
     return(
@@ -22,14 +22,14 @@ function Header({isWeather}){
                         to="/tasks" 
                         className="h-menu_link" 
                         activeStyle={{
-                            color: "Black"
+                            color: " #c2bdbd"
                         }}
                     >Tasks</NavLink>
                     <NavLink 
                         to="/weather" 
                         className="h-menu_link"
                         activeStyle={{
-                            color: "Black",
+                            color: " #c2bdbd",
                            
                         }}
                     >Weather</NavLink>

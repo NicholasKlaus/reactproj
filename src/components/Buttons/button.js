@@ -5,8 +5,8 @@ function NavButtons(){
 
     return(
         <div className="button-wrap">
-            <button className="leftArrow"></button>
-            <button className="rightArrow"></button>
+            <button className="leftArrow"><i className="icofont-rounded-left icofont-2x"></i></button>
+            <button className="rightArrow"><i className="icofont-rounded-right icofont-2x"></i></button>
         </div>
     );
 }

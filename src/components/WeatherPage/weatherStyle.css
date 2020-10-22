@@ -23,6 +23,7 @@
   
 .w-rightPanelList{
     list-style: none;
+    color: #fff;
 }
   
 .w-listItem{
@@ -35,6 +36,7 @@
   
 .w-leftPanelList{
     list-style: none;
+    color: #fff;
 }
 
 .cards-wrap{

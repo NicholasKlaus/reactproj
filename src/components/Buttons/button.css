@@ -8,7 +8,7 @@
     -moz-appearance: none;
     appearance: none;
     margin-right: 10px;
-    padding: 20px;
+    padding: 5px;
     border: none;
     border-radius: 25px;
     background: linear-gradient(to bottom, #e9f172 10%, #e7f52a 36%, #e69419 100%);
@@ -19,7 +19,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    padding: 20px;
+    padding: 5px;
     border: none;
     border-radius: 25px;
     background: linear-gradient(to bottom, #e9f172 10%, #e7f52a 36%, #e69419 100%);
