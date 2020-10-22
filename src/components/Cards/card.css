@@ -1,0 +1,13 @@
+.w-card{
+    margin-right: 20px;
+    padding: 15px;
+    /* border: 1px solid #5b006d; вроді так краще без*/
+    text-align: center;
+    /* background-color: #e69419; вроді градіенту це не потрібне*/
+    background: linear-gradient(to bottom, #e9f172 10%, #e7f52a 36%, #e69419 100%);
+    /* box-shadow: 5px 5px 0 rgba(0,0,0,0.5); це перенести на активну картку коли вона активна (1)*/
+}
+
+.w-card:active{
+    /* box-shadow: 5px 5px 0 rgba(0,0,0,0.5); (1) */
+}

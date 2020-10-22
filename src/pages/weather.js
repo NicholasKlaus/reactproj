@@ -5,8 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row} from 'react-bootstrap';
 import {Col} from 'react-bootstrap';
 import Header from '../components/Header/header';
-
-
+import Card from '../components/Cards/card';
+import NavButtons from '../components/Buttons/button';
 
 export default function Weather() {
     
@@ -58,60 +58,15 @@ export default function Weather() {
                     </div>
                     <div className="w-body__bottom">
                         <div className="cards-wrap">
-                            <div className="w-card">
-                                <div className="w-card_body">
-                                    <span>3pm</span>
-                                    <h1>28 &deg;C</h1>
-                                    <span>Monday</span>
-                                </div>
-                            </div>
-                            <div className="w-card">
-                                <div className="w-card_body">
-                                    <span>4pm</span>
-                                    <h1>28 &deg;C</h1>
-                                    <span>Tuesday</span>
-                                </div>
-                            </div>
-                            <div className="w-card">
-                                <div className="w-card_body">
-                                    <span>5pm</span>
-                                    <h1>24 &deg;C</h1>
-                                    <span>Wednesday</span>
-                                </div>
-                            </div>
-                            <div className="w-card">
-                                <div className="w-card_body">
-                                    <span>6pm</span>
-                                    <h1>17 &deg;C</h1>
-                                    <span>Thursday</span>
-                                </div>
-                            </div>
-                            <div className="w-card">
-                                <div className="w-card_body">
-                                    <span>7pm</span>
-                                    <h1>11 &deg;C</h1>
-                                    <span>Friday</span>
-                                </div>
-                            </div>
-                            <div className="w-card">
-                                <div className="w-card_body">
-                                    <span>8pm</span>
-                                    <h1>11 &deg;C</h1>
-                                    <span>Saturday</span>
-                                </div>
-                            </div>
-                            <div className="w-card">
-                                <div className="w-card_body">
-                                    <span>9pm</span>
-                                    <h1>5 &deg;C</h1>
-                                    <span>Sunday</span>
-                                </div>
-                            </div>
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />   
+                            <Card />
+                            <Card />
+                            <Card />
                         </div>
-                        <div className="button-wrap">
-                            <button className="leftArrow"></button>
-                            <button className="rightArrow"></button>
-                        </div>
+                        <NavButtons />
                     </div>
                 </div>
             </div>
