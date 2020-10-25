@@ -5,11 +5,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row} from 'react-bootstrap';
 import {Col} from 'react-bootstrap';
 import Header from '../components/Header/header';
+import CardList from '../components/Cards/card-list';
 import Card from '../components/Cards/card';
 import NavButtons from '../components/Buttons/button';
 
 export default function Weather() {
-    
+    const API_key="3b71725b59ef23dd71e0c2b33a1e16ee";
+    const url =`https://api.openweathermap.org/data/2.5/onecall?lat=48.547222&lon=22.986389&units=metric&exclude=current,minutely,hourly&appid=${API_key}`;
+    let $arr = [];
+    async function getWeather(){
+        console.log('started ');
+        let response = await fetch(url);
+        if (response.ok){
+            let wData = await response.json()
+            //console.log(wData);
+            $arr.push(wData);
+        } else {
+            console.log("Ошибка HTTP: " + response.status);
+        }
+        return $arr;
+    }
+    getWeather();
+    console.log($arr);
+
     
 
     return (
@@ -57,15 +75,7 @@ export default function Weather() {
                         </Row>
                     </div>
                     <div className="w-body__bottom">
-                        <div className="cards-wrap">
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />   
-                            <Card />
-                            <Card />
-                            <Card />
-                        </div>
+                        <CardList data={$arr}/>
                         <NavButtons />
                     </div>
                 </div>
