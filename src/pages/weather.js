@@ -5,8 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row} from 'react-bootstrap';
 import {Col} from 'react-bootstrap';
 import Header from '../components/Header/header';
-import CardList from '../components/Cards/card-list';
-import Card from '../components/Cards/card';
+import CardList from '../components/Cards/card-list'
 import NavButtons from '../components/Buttons/button';
 
 export default function Weather() {
@@ -18,16 +17,22 @@ export default function Weather() {
         let response = await fetch(url);
         if (response.ok){
             let wData = await response.json()
-            //console.log(wData);
-            $arr.push(wData);
+            console.log(typeof wData);
+            console.log(wData);
+            console.log(wData.daily);
+            $arr.push(wData.daily);
+            
+            for (let value of Object.keys(wData)) {
+               console.log(value); 
+              }
         } else {
             console.log("Ошибка HTTP: " + response.status);
         }
         return $arr;
     }
     getWeather();
-    console.log($arr);
-
+    //console.log($arr);
+   
     
 
     return (
