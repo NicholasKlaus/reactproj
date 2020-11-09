@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/WeatherPage/weatherStyle.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,30 +8,39 @@ import Header from '../components/Header/header';
 import CardList from '../components/Cards/card-list'
 import NavButtons from '../components/Buttons/button';
 
-export default function Weather() {
+function Weather() {
     const API_key="3b71725b59ef23dd71e0c2b33a1e16ee";
     const url =`https://api.openweathermap.org/data/2.5/onecall?lat=48.547222&lon=22.986389&units=metric&exclude=current,minutely,hourly&appid=${API_key}`;
-    let $arr = [];
+    
+    let _data = [];
+    let arr = getWeather();
+    console.log(arr);
+    
+
+    useEffect(() => {
+        getWeather();
+        
+    })
+    
     async function getWeather(){
-        console.log('started ');
+       
         let response = await fetch(url);
         if (response.ok){
             let wData = await response.json()
-            console.log(typeof wData);
-            console.log(wData);
-            console.log(wData.daily);
-            $arr.push(wData.daily);
+            _data= wData.daily;
             
-            for (let value of Object.keys(wData)) {
-               console.log(value); 
-              }
+            //console.log(data);
+            //console.log(wData);
+            
+            return _data;
         } else {
             console.log("Ошибка HTTP: " + response.status);
+            return null;
         }
-        return $arr;
+       
     }
-    getWeather();
-    //console.log($arr);
+   
+    
    
     
 
@@ -80,7 +89,7 @@ export default function Weather() {
                         </Row>
                     </div>
                     <div className="w-body__bottom">
-                        <CardList data={$arr}/>
+                        <CardList data={arr} />
                         <NavButtons />
                     </div>
                 </div>
@@ -88,3 +97,5 @@ export default function Weather() {
         </div>
     );
 }
+
+export default Weather;
