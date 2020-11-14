@@ -1,6 +1,6 @@
 .w-card{
-    margin-right: 20px;
-    padding: 15px;
+    margin-right: 10px;
+    padding: 7.5px;
     /* border: 1px solid #5b006d; вроді так краще без*/
     text-align: center;
     /* background-color: #e69419; вроді градіенту це не потрібне*/
@@ -10,4 +10,11 @@
 
 .w-card:active{
     /* box-shadow: 5px 5px 0 rgba(0,0,0,0.5); (1) */
+}
+
+.card_title{
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 600;
+    white-space: nowrap;
 }

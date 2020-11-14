@@ -9,8 +9,8 @@ function Card({el}){
         <div className="w-card">
             <div className="w-card_body">
                
-                <span>3pm</span>
-                <h1>28 &deg;C</h1>
+                <span><img src ={` http://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`} ></img></span>
+                <h1 className='card_title'>День {el.temp.day}&deg;C </h1>
                 <span>Monday</span>
                 
             </div>

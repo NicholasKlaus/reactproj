@@ -2,19 +2,18 @@ import React from 'react';
 import './card-list.css';
 import Card from './card';
 
-function CardList(){
-    
+function CardList({data}){
     
     return(
         <div className="card-list">
            
-           {/* {data.map((el) => {
+           {data.map((el, key) => {
                return (
-                   <Card el={el}  />
+                   <Card el={el} key={key} />
                );
-           })} */}
+           })}
 
-            <Card />
+            {/* <Card /> */}
                 
             
         </div>

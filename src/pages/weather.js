@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/WeatherPage/weatherStyle.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,18 +10,16 @@ import NavButtons from '../components/Buttons/button';
 
 function Weather() {
   const API_key = "3b71725b59ef23dd71e0c2b33a1e16ee";
-  const url = `https://api.openweathermap.org/data/2.5/onecall?lat=48.547222&lon=22.986389&units=metric&exclude=current,minutely,hourly&appid=${API_key}`;
-
-  let data = [];
+  const url = `https://api.openweathermap.org/data/2.5/onecall?lat=48.5463880&lon=22.9958100&units=metric&exclude=current,minutely,hourly&appid=${API_key}`;
+  const [weatherData, setWeatherData] = useState([]);
+  //let data = [];
   let _data = [];
-  // let arr = getWeather();
-
+ 
 
   useEffect(() => {
     _data = getAnotherWeather();
-      getWeather();
   }, [])
-
+  
 
   async function getAnotherWeather() {
     //  1-й спосіб
@@ -29,21 +27,21 @@ function Weather() {
       .then(res => res.json())
       .catch(err => {
         throw new Error(err.message)
-      });
-    console.log(_response)
+      })
+      .then( _response => setWeatherData(_response.daily));
     return _response;
   }
 
-  async function getWeather() {
-    //  2-й спосіб
-    let response = await fetch(url)
-    if (response.ok) {
-      data = await response.json()
-      console.log(data)
-    } else {
-      throw new Error(response.statusText);
-    }
-  }
+  // async function getWeather() {
+  //   //  2-й спосіб
+  //   let response = await fetch(url)
+  //   if (response.ok) {
+  //     data = await response.json()
+  //     //console.log(data)
+  //   } else {
+  //     throw new Error(response.statusText);
+  //   }
+  // }
 
 
   return (
@@ -91,7 +89,7 @@ function Weather() {
             </Row>
           </div>
           <div className="w-body__bottom">
-            {/*<CardList data={arr} />*/}
+            <CardList data = {weatherData} />
             <NavButtons/>
           </div>
         </div>
