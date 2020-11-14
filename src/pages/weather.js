@@ -12,37 +12,21 @@ function Weather() {
   const API_key = "3b71725b59ef23dd71e0c2b33a1e16ee";
   const url = `https://api.openweathermap.org/data/2.5/onecall?lat=48.5463880&lon=22.9958100&units=metric&exclude=current,minutely,hourly&appid=${API_key}`;
   const [weatherData, setWeatherData] = useState([]);
-  //let data = [];
-  let _data = [];
  
 
   useEffect(() => {
-    _data = getAnotherWeather();
+    getAnotherWeather();
   }, [])
   
 
-  async function getAnotherWeather() {
-    //  1-й спосіб
-    let _response = await fetch(url)
+  function getAnotherWeather() {
+    fetch(url)
       .then(res => res.json())
+      .then(weather => setWeatherData(weather.daily))
       .catch(err => {
         throw new Error(err.message)
-      })
-      .then( _response => setWeatherData(_response.daily));
-    return _response;
+      });
   }
-
-  // async function getWeather() {
-  //   //  2-й спосіб
-  //   let response = await fetch(url)
-  //   if (response.ok) {
-  //     data = await response.json()
-  //     //console.log(data)
-  //   } else {
-  //     throw new Error(response.statusText);
-  //   }
-  // }
-
 
   return (
     <div className="weather">
@@ -89,7 +73,7 @@ function Weather() {
             </Row>
           </div>
           <div className="w-body__bottom">
-            <CardList data = {weatherData} />
+            <CardList data={weatherData} />
             <NavButtons/>
           </div>
         </div>
