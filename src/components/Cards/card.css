@@ -5,13 +5,12 @@
     text-align: center;
     /* background-color: #e69419; вроді градіенту це не потрібне*/
     background: linear-gradient(to bottom, #e9f172 10%, #e7f52a 36%, #e69419 100%);
-    /* box-shadow: 10px 10px 0 rgba(0,0,0,0.5); це перенести на активну картку коли вона активна (1) */
+    border-radius: 10px;
 }
 
 .w-card:active{
-    /* box-shadow: 5px 5px 0 rgba(0,0,0,0.5); (1) */
+    background: linear-gradient(to bottom, #ff6f4b 10%, #e69419 36%, #ff0505 100%);
 }
-
 .card_title{
     font-size: 18px;
     line-height: 25px;

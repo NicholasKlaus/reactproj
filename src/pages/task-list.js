@@ -39,13 +39,11 @@ function Tasks() {
     }, [_arr]);
  
     return (
-      <div className="tasks">
+      <div className = "tasks" >
         <Header />
-  
-        <div className='container'>
-          <AddTodo onCreate={addTodo} />
-  
-          <TodoList data={_arr}  onToggle={toggleTodo} removeTask={del} />
+        <div className = 'container' >
+          <AddTodo onCreate = { addTodo } />
+          <TodoList data = { _arr }  onToggle = { toggleTodo } removeTask = { del } />
         </div>
       </div>
     );
@@ -53,9 +51,7 @@ function Tasks() {
 
     function addTodo(value) {
       setArr([..._arr, value]);
-      
     }
-    
       
     function toggleTodo(id) {
       setArr(
@@ -64,7 +60,6 @@ function Tasks() {
            el.completed = !el.completed;
           }
           return el;
-        
         })
       );
     }

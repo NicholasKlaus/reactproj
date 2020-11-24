@@ -14,10 +14,10 @@ function Header({isWeather}){
    
 
     return(
-       <div className={className}>
-            <div className="h-body">
-                <div className="h-title">App</div>
-                <ul className="h-menu_list">
+       <div className = { className } >
+            <div className = "h-body" >
+                <div className = "h-title" >App</div>
+                <ul className = "h-menu_list" >
                     <NavLink 
                         to="/tasks" 
                         className="h-menu_link" 
@@ -30,10 +30,8 @@ function Header({isWeather}){
                         className="h-menu_link"
                         activeStyle={{
                             color: " #c2bdbd",
-                           
                         }}
                     >Weather</NavLink>
-                    
                 </ul>
            </div>
        </div>
