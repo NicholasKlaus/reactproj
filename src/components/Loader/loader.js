@@ -3,7 +3,7 @@ import './loader.css';
 
 function Loader() {
     return (
-        <div><div className = "lds-dual-ring" /></div>
+        <div className = "loading-wrap" ><div className = "lds-dual-ring" /></div>
     );
 }
 

@@ -1,3 +1,11 @@
+.loading-wrap{
+  padding-top: 200px;
+  padding-bottom: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .lds-dual-ring {
     display: inline-block;
     width: 80px;

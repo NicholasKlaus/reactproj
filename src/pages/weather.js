@@ -17,26 +17,38 @@ function Weather() {
   const [loading, setLoading] = useState(true);
   
   
-  useEffect(() => {
+  useEffect( () => {
+    function getAnotherWeather() {
+      fetch(url)
+        .then(res => res.json())
+        //.then(weather => setWeatherData(weather.list))
+        .then(weather => setWeatherData(weather.daily))
+        .catch(err => {
+          throw new Error(err.message)
+        });
+    }
+
     getAnotherWeather();
-    
-  }, [])
+  }, [url]);
+
+  useEffect( () => {
+    function checkData(data) {
+      if (data.length && data[0].dt){
+        setLoading(false);
+        console.log(data.length);
+       return( data.length);
+       
+      } else {
+        return(setLoading(true));
+        
+      }
+    }
+
+    checkData(weatherData);
+  }, [weatherData]);
   
-
-  function getAnotherWeather() {
-    fetch(url)
-      .then(res => res.json())
-      //.then(weather => setWeatherData(weather.list))
-      .then(weather => {
-        setWeatherData(weather.daily)
-        setLoading(false)
-      })
-      .catch(err => {
-        throw new Error(err.message)
-      });
-  }
-
-  console.log(weatherData[0]);
+  console.log(weatherData[0].dt);
+ 
   
 
   return (
@@ -44,13 +56,13 @@ function Weather() {
       <Header isWeather = { true } />
       <div className = "container" >
         <div className = 'w-body' >
+          {loading && <Loader />}
           <div className = "w-body__top" >
             <Row>
               <Col sm = { 6 }>
                 <div className = "w-list_leftWrap" >
                   <ul className = "w-leftPanelList" >
                     <li>
-                      {loading && <Loader />}
                       {/* <h2> { weatherData[0].dt } </h2>
                       <span>Monday</span>
                       <h1>28 &deg;C</h1>
