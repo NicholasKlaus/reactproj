@@ -15,41 +15,31 @@ function Weather() {
   //const url = `https://api.openweathermap.org/data/2.5/forecast?lat=48.547222&lon=22.986389&units=metric&appid=${API_key}`;
   const [weatherData, setWeatherData] = useState([]);
   const [loading, setLoading] = useState(true);
-  
-  
-  useEffect( () => {
-    function getAnotherWeather() {
-      fetch(url)
-        .then(res => res.json())
-        //.then(weather => setWeatherData(weather.list))
-        .then(weather => setWeatherData(weather.daily))
-        .catch(err => {
-          throw new Error(err.message)
-        });
-    }
+  let weekdayName = new Date();
+  let weekdayDate = new Date();
 
+  useEffect( () => {
     getAnotherWeather();
-  }, [url]);
+  }, []);
 
   useEffect( () => {
-    function checkData(data) {
-      if (data.length && data[0].dt){
-        setLoading(false);
-        console.log(data.length);
-       return( data.length);
-       
-      } else {
-        return(setLoading(true));
-        
-      }
+    if (weatherData.length) {
+      console.log(weatherData[0].dt);
+      setLoading(false);
     }
-
-    checkData(weatherData);
   }, [weatherData]);
-  
-  console.log(weatherData[0].dt);
- 
-  
+
+  function getAnotherWeather() {
+    fetch(url)
+      .then(res => res.json())
+      //.then(weather => setWeatherData(weather.list))
+      .then(weather => setWeatherData(weather.daily))
+      .catch(err => {
+        throw new Error(err.message)
+      });
+  }
+
+  console.log(weatherData);
 
   return (
     <div className = "weather" >
@@ -60,37 +50,44 @@ function Weather() {
           <div className = "w-body__top" >
             <Row>
               <Col sm = { 6 }>
-                <div className = "w-list_leftWrap" >
-                  <ul className = "w-leftPanelList" >
-                    <li>
-                      {/* <h2> { weatherData[0].dt } </h2>
-                      <span>Monday</span>
-                      <h1>28 &deg;C</h1>
-                      <span>Change Location</span> */}
-                    </li>
-                  </ul>
+                <div className = "w-list_left_wrap" >
+                  {
+                    !weatherData.length ?
+                    <Loader />
+                      :
+                    (
+                      <ul className = "w-left_content" >
+                          <li>
+                            <span><img  src = { `http://openweathermap.org/img/wn/${weatherData[0].weather[0].icon}@2x.png` }  alt = 'icon' /></span>
+                            <span> {  weekdayDate = new Date(weatherData[0].dt * 1000).toLocaleString('en', {year: 'numeric', month: 'numeric', day: 'numeric'}) } </span>
+                            <span> { weekdayName = new Date(weatherData[0].dt * 1000).toLocaleString('en', {weekday: 'long'}) } </span>
+                            <h2>Day {  Math.round(weatherData[0].temp.day) }&deg;C</h2>
+                            <h2>Feels like { Math.round(weatherData[0].feels_like.day) }&deg;C</h2>
+                        </li>
+                      </ul>
+                    )
+                  }
                 </div>
               </Col>
               <Col sm = { 6 }>
-                <div className = "w-list_rightWrap" >
-                  <ul className = "w-rightPanelList" >
-                    <li className = 'w-listItem' >
-                      <span>Humidity</span>
-                      <h2>50%</h2>
-                    </li>
-                    <li className = 'w-listItem' >
-                      <span>Air Pressure</span>
-                      <h2>1009.483 ps</h2>
-                    </li>
-                    <li className = 'w-listItem' >
-                      <span>Chance of Rain</span>
-                      <h2>0%</h2>
-                    </li>
-                    <li className = 'w-listItem' >
-                      <span>Wind Speed</span>
-                      <h2>1.4km/h</h2>
-                    </li>
-                  </ul>
+                <div className = "w-list_right_wrap" >
+                  {
+                    !weatherData.length ?
+                    <Loader />
+                      :
+                    (
+                      <ul className = "w-right_content" >
+                        <li className = 'w-listItem' >
+                          <span>Humidity</span>
+                          <h2> { weatherData[0].humidity }%</h2>
+                          <span>Air Pressure</span>
+                          <h2> { weatherData[0].pressure }ps</h2>
+                          <span>Wind Speed</span>
+                          <h2> { weatherData[0].wind_speed }km/h</h2>
+                        </li>
+                      </ul>
+                    )  
+                  }
                 </div>
               </Col>
             </Row>

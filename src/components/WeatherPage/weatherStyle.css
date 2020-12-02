@@ -7,7 +7,8 @@
 }
 
 .w-body__top{
-
+    padding-top: 30px;
+    padding-bottom: 50px;
 }
 
 .w-body__bottom{
@@ -16,12 +17,12 @@
     justify-content: space-between;
 }
   
-.w-list_rightWrap{
+.w-list_right_wrap{
     display: flex;
     justify-content: flex-end;
 }
   
-.w-rightPanelList{
+.w-right_content{
     list-style: none;
     color: #fff;
 }
@@ -30,17 +31,11 @@
     padding: 10px 0 10px 0;
 }
   
-.w-list_leftWrap{
+.w-list_left_wrap{
   
 }
   
-.w-leftPanelList{
+.w-left_content{
     list-style: none;
     color: #fff;
 }
-
-/* .cards-wrap{
-    padding: 50px 0 50px 0;
-    display: flex;
-    align-items: center;
-} */
