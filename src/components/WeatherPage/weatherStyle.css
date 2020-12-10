@@ -1,9 +1,10 @@
 .weather {
-    background: #8e45e0;
-    background: linear-gradient(to left, #d7bae4 0%, #d470dd 36%, #8e45e0 100%);
+    /* background: #8e45e0;
+    background: linear-gradient(to left, #d7bae4 0%, #d470dd 36%, #8e45e0 100%); */
 } 
 .w-body{
-    
+    background: #8e45e0;
+    background: linear-gradient(to left, #d7bae4 0%, #d470dd 36%, #8e45e0 100%);
 }
 
 .w-body__top{
@@ -15,16 +16,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-  
-.w-list_right_wrap{
-    display: flex;
-    justify-content: flex-end;
-}
-  
-.w-right_content{
-    list-style: none;
-    color: #fff;
 }
   
 .w-listItem{
