@@ -1,6 +1,9 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "styles/index.css";
+
 @font-face{
   font-family: 'IcoFont';
-  src: url('./Fonts/icofont/icofont.css');
+  src: url('fonts/icofont/icofont.css');
   font-weight: normal;
   font-style: "Regular";
 }

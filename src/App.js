@@ -1,20 +1,21 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import {
+  WeatherPage,
+  TodoPage
+} from "./pages/index"
 
-import Tasks from './pages/task-list';
-import Weather from './pages/weather';
-
-function App() {
+function App () {
   
   return (
     <div className="app">
       <Router>
         <Switch>
           <Route path="/tasks">
-            <Tasks />
+            <TodoPage />
           </Route>
           <Route path="/weather">
-            <Weather />
+            <WeatherPage />
           </Route>
           <Redirect from='/' to='/tasks'/>
         </Switch>

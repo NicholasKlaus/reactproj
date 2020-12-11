@@ -1,17 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import './header.css';
+import './Header.css';
 import {BrowserRouter as Switch, NavLink} from 'react-router-dom';
 
 
-function Header({isWeather}){
+export const Header = ({ isWeather }) => {
     const [className, setClassName] = useState("header");
-
 
     useEffect(function(){
         setClassName(isWeather === true ? 'w-header' : 'header');
     }, [isWeather])
-    
-   
 
     return(
        <div className = { className } >
@@ -37,5 +34,3 @@ function Header({isWeather}){
        </div>
     );
 }
-// const AdaptiveHeader = withRouter(Header)
-export default Header

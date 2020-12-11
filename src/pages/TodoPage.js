@@ -1,11 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import TodoList from '../components/TaskListPage/Tasks/TodoList';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AddTodo from '../components/TaskListPage/Tasks/AddTodo';
-import '../components/TaskListPage/taskListStyle.css';
-import Header from '../components/Header/header';
+import '../styles/taskListStyle.css';
+import { AddTodo, TodoList, Header } from "../components/index"
 
-function Tasks() {
+export const TodoPage = () => {
     let [_arr, setArr] = useState(
       [
         {
@@ -25,8 +23,6 @@ function Tasks() {
         },
       ]
     );
-
-
     
     useEffect( () => {
       const _data = localStorage.getItem('_data') ? JSON.parse(localStorage.getItem('_data')) : [];
@@ -68,5 +64,3 @@ function Tasks() {
       setArr(_arr.filter(el => el.id !== id));
     }
 }
-  
-export default Tasks;
