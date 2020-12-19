@@ -7,7 +7,7 @@ import {
 function App () {
   
   return (
-    <div className="app">
+    <div className="App">
       <WeatherPage />
     </div>
   );
