@@ -4,14 +4,13 @@ import { Row, Col, Spinner } from 'react-bootstrap';
 import {
   MainLayout,
   CardList,
-  Header
 } from "../components/index";
 import { formatWeekDay, formatDate } from '../helpers/timeHelper';
 
+
 export const WeatherPage = () => {
-  const API_key = "3b71725b59ef23dd71e0c2b33a1e16ee";
-  const url = `https://api.openweathermap.org/data/2.5/onecall?lat=48.5463880&lon=22.9958100&units=metric&exclude=current,minutely,hourly&appid=${API_key}`;
-  //const url = `https://api.openweathermap.org/data/2.5/forecast?lat=48.547222&lon=22.986389&units=metric&appid=${API_key}`;
+  const { REACT_APP_API_KEY, REACT_APP_API_URL } = process.env;
+  const url = `${REACT_APP_API_URL}${REACT_APP_API_KEY}`;
   const [weatherData, setWeatherData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [weekDay, setWeekDay] = useState(null);
@@ -37,16 +36,14 @@ export const WeatherPage = () => {
   function getAnotherWeather() {
     fetch(url)
       .then(res => res.json())
-      //.then(weather => setWeatherData(weather.list))
       .then(weather => setWeatherData(weather.daily))
       .catch(err => {
         throw new Error(err.message)
       });
   }
-
+  
   return (
     <div className="weather">
-      <Header isWeather={true}/>
       <MainLayout>
         <div className="container">
           <div className='w-body'>
@@ -63,7 +60,7 @@ export const WeatherPage = () => {
                           <ul className="w-left_content">
                             <li>
                               <span> { weekDayDate } </span>
-                              <span> { weekDayDate } </span>
+                              <span> { weekDay } </span>
                               <h2>Day {Math.round(weatherData[0].temp.day)}&deg;C</h2>
                               <h2>Feels like { Math.round(weatherData[0].feels_like.day) }&deg;C</h2>
                               <span>Humidity</span>

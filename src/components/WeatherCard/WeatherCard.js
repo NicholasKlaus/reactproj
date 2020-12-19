@@ -1,23 +1,11 @@
 import React from 'react';
 import './WeatherCard.css';
+import { formatWeekDay, formatDate } from '../../helpers/timeHelper';
 
 export const WeatherCard = ({ el }) => {
-  let ms = el.dt * 1000;
-  let weekdayName = new Date(ms).toLocaleString('en', {weekday: 'long'});
-  //================================================================
-  //const reportDate = new Date(el.dt * 1000).getDate();
-  let weekdayDate = new Date(el.dt * 1000).toLocaleString('en', {year: 'numeric', month: 'numeric', day: 'numeric'});
-  //================================================================
-  //const hours = new Date(el.dt * 1000).toLocaleString('uk', {hour: 'numeric', minute: 'numeric', second: 'numeric'});
-  // виводить 12:00
-  //================================================================
-  //let feels_like = el.feels_like.day;
-  //================================================================
-  let today = new Date().toLocaleString('en', {year: 'numeric', month: 'numeric', day: 'numeric'});
-
-  // if (today === weekdayDate){
-  //     console.log('дати співпадають');
-  // }
+  let weekdayName = formatWeekDay(el.dt);
+  let weekdayDate = formatDate(el.dt);
+  let today = formatDate(new Date());
 
   return (
     <div className={`w-card ${(today === weekdayDate) ? 'active' : ''} `}>

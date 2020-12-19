@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/taskListStyle.css';
-import { AddTodo, TodoList, Header } from "../components/index"
+import { AddTodo, TodoList } from "../components/index"
 
 export const TodoPage = () => {
     let [_arr, setArr] = useState(
@@ -36,7 +36,6 @@ export const TodoPage = () => {
  
     return (
       <div className = "tasks" >
-        <Header />
         <div className = 'container' >
           <AddTodo onCreate = { addTodo } />
           <TodoList data = { _arr }  onToggle = { toggleTodo } removeTask = { del } />
