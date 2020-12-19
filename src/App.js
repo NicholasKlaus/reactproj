@@ -1,7 +1,6 @@
 import React from 'react';
 import {
-  WeatherPage,
-  TodoPage
+  WeatherPage
 } from "./pages/index"
 
 function App () {
