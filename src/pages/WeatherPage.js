@@ -41,7 +41,7 @@ export const WeatherPage = () => {
         throw new Error(err.message)
       });
   }
-  console.log(weatherData);
+  
   return (
     <div className="weather">
       <MainLayout>
