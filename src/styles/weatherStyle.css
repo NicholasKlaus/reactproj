@@ -3,9 +3,7 @@
 } 
 
 .w-body{
-    background: #8e45e0;
-    background: linear-gradient(to left, #d7bae4 0%, #d470dd 36%, #8e45e0 100%);
-    background: url("../components/MainLayout/bg.jpg");
+    background: rgba(0, 0, 0, 0.47);
 }
 
 .w-body__top {
@@ -16,10 +14,6 @@
 .w-body__bottom {
     padding: 10px 0 10px 0;
     background: rgba(0, 0, 0, 0.37);
-}
-
-.w-listItem {
-    padding: 10px 0 10px 0;
 }
 
 .w-left_content {
