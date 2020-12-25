@@ -2,6 +2,11 @@
     height: 100vh;
 } 
 
+.container{
+    width: unset!important;
+    max-width: 1170px!important;
+}
+
 .w-body{
     background: rgba(0, 0, 0, 0.47);
 }
@@ -12,13 +17,23 @@
 }
 
 .w-body__bottom {
-    padding: 10px 0 10px 0;
+    padding: 10px 0 20px 0;
     background: rgba(0, 0, 0, 0.37);
 }
 
 .w-left_content {
     list-style: none;
     color: #fff;
+}
+
+.w-data_temperature{
+ font-size: 32px;
+ line-height: 35px;
+}
+
+.w-data_temp-feels{
+    font-size: 28px;
+    line-height: 35px;
 }
 
 .w-data_date {
@@ -31,4 +46,28 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 25px;
+}
+
+@media (max-width: 576px){
+    .w-data {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+    }
+
+    .w-data_date {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+
+    .w-data_temperature{
+        font-size: 20px;
+        line-height: 25px;
+    }
+
+    .w-data_temp-feels{
+        font-size: 18px;
+        line-height: 25px;
+    }
 }
