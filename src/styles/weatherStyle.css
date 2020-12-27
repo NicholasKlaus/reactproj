@@ -48,6 +48,12 @@
     line-height: 25px;
 }
 
+.w-data_city-name{
+    color: white;
+    text-align: right;
+    padding-right: 40px;
+}
+
 @media (max-width: 576px){
     .w-data {
         font-size: 16px;

@@ -73,6 +73,9 @@ export const WeatherPage = () => {
                     }
                   </div>
                 </Col>
+                <Col sm={6}>
+                  <h1 className="w-data_city-name">Svalyava</h1>
+                </Col>
               </Row>
             </div>
             <div className="w-body__bottom">
