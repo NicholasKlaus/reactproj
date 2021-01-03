@@ -1,0 +1,31 @@
+.container{
+    width: unset!important;
+    max-width: 1170px!important;
+}
+
+.landing{
+    height: 100vh;
+}
+
+.l-body{
+    padding: 200px 0 100px 0;
+}
+
+.c-search_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.c-search_input{
+    padding: 10px 10px 10px 10px;
+    width: 750px;
+    outline-offset: unset!important;
+    outline: none;
+    border-radius: 25px;
+    border: black solid 1px;
+}
+
+.dropdown-list {
+    list-style: none;
+}

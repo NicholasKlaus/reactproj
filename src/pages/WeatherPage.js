@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/weatherStyle.css';
 import { Row, Col, Spinner } from 'react-bootstrap';
 import {
   MainLayout,
