@@ -1,6 +1,10 @@
 import React, {useState} from "react";
 import {BrowserRouter as Switch, NavLink} from 'react-router-dom';
-
+import {
+    InputGroup,
+    FormControl,
+    Button,
+} from "react-bootstrap";
 
 export const LandingPage = () => {
     let arr = [
@@ -30,13 +34,18 @@ export const LandingPage = () => {
             >See weather</NavLink>
                 <div className ="l-body">
                     <div className ="c-search_wrapper">
-                        <input
-                        type ="search" 
-                        name ="searchBar" 
-                        placeholder ="Search" 
-                        className ="c-search_input"
-                        onInput={onInput}
-                        ></input>
+                        <InputGroup className="mb-3">
+                            <InputGroup.Prepend>
+                                <Button variant="outline-secondary"> <i className="icofont-search-2 search-icon"></i></Button>
+                            </InputGroup.Prepend>
+                            <FormControl
+                             aria-describedby="basic-addon1" 
+                             type ="search" 
+                             name ="searchBar" 
+                             placeholder ="Search" 
+                             onInput={onInput}
+                            />
+                        </InputGroup>
                     </div>
                     <ul className="dropdown-list">
                         {   
