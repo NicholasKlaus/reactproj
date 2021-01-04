@@ -5,21 +5,19 @@ import {BrowserRouter as Switch, NavLink} from 'react-router-dom';
 export const LandingPage = () => {
     let arr = [
         { city: "Свалява", zip: 89300}, {city: "Солочин", zip: 89321}, {city: "Сасівка", zip: 89309}, {city: "Солотвино", zip: 90575}, {city: "Сваричів", zip: 77605}
-    ]
+    ] 
     
     const [filteredCities, setfilteredCities] = useState([]);
+
     const onInput = (event) => {
-        //setfilteredCities(arr.filter(el =>  el.city.startsWith(event.target.value)))
-        //console.log(filteredCities);
-        if (event.target.value !== ""){
-            setfilteredCities(arr.filter(el =>  el.city.startsWith(event.target.value)))
-        }
-        if (event.target.value === ""){
+        let filtredData = arr.filter(el =>  el.city.startsWith(event.target.value))
+        if (!event.target.value){
             setfilteredCities([]);
+        }else {
+            setfilteredCities(filtredData);
         }
     };   
     
-
     return(
         <div className ="landing">
             <div className ="container">
