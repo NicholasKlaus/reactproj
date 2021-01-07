@@ -15,47 +15,46 @@ export const LandingPage = () => {
 
     const onInput = (event) => {
         let filtredData = arr.filter(el =>  el.city.startsWith(event.target.value))
-        if (!event.target.value){
+        if (!event.target.value) {
             setfilteredCities([]);
-        }else {
+        } else {
             setfilteredCities(filtredData);
         }
     };   
     
     return(
-        <div className ="landing">
-            <div className ="container">
+        <div className="landing">
+            <div className="container">
                 <NavLink 
-                to="/WeatherPage" 
-                //className="h-menu_link"
-                activeStyle={{
-                    color: " #c2bdbd",
-                }}
-            >See weather</NavLink>
-                <div className ="l-body">
-                    <div className ="c-search_wrapper">
-                        <InputGroup className="mb-3">
-                            <InputGroup.Prepend>
-                                <Button variant="outline-secondary"> <i className="icofont-search-2 search-icon"></i></Button>
-                            </InputGroup.Prepend>
-                            <FormControl
-                             aria-describedby="basic-addon1" 
-                             type ="search" 
-                             name ="searchBar" 
-                             placeholder ="Search" 
-                             onInput={onInput}
-                            />
-                        </InputGroup>
+                    to="/WeatherPage" 
+                    activeStyle= {{
+                        color: " #c2bdbd",
+                    }}
+                >
+                See weather
+                </NavLink>
+                <div className="l-body">
+                    <div className="autocomplete-seach_wrap">
+                        <div className="c-search_wrapper">
+                            <i className="icofont-search-2 search-icon"></i>
+                            <input 
+                                type="search" 
+                                name="searchBar" 
+                                placeholder="Search" 
+                                className="search-bar"
+                                onInput= {onInput}
+                            ></input>
+                        </div>
+                        <ul className="dropdown-list">
+                            {   
+                                filteredCities.map((el, key) => {
+                                    return (
+                                    <li className="list-item" el= {el} key= {key}> {el.city} </li>
+                                    );
+                                })
+                            }
+                        </ul>
                     </div>
-                    <ul className="dropdown-list">
-                        {   
-                            filteredCities.map((el, key) => {
-                                return (
-                                    <li el={el} key={key}>{el.city}</li>
-                                );
-                            })
-                        }
-                    </ul>
                 </div>
             </div>
         </div>
