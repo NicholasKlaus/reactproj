@@ -5,6 +5,7 @@ import {
   CardList,
 } from "../components/index";
 import { formatWeekDay, formatDate } from '../helpers/timeHelper';
+import { useLocation } from 'react-router-dom';
 
 
 export const WeatherPage = () => {
@@ -14,6 +15,19 @@ export const WeatherPage = () => {
   const [loading, setLoading] = useState(true);
   const [weekDay, setWeekDay] = useState(null);
   const [weekDayDate, setWeekDayDate] = useState(null);
+
+
+
+
+  function useQuery() {
+    return new URLSearchParams(useLocation().search);
+  }
+
+  let query = useQuery();
+
+  let coords = query.get('coord');
+  console.log(coords);
+
 
   useEffect(() => {
     if (weatherData.length && weatherData[0].dt) {
