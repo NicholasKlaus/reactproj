@@ -5,6 +5,7 @@ import {
   LandingPage
 } from "./pages/index"
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import {ROUTES} from "./constants/routes";
 
 function App () {
   
@@ -12,16 +13,10 @@ function App () {
     <div className="App">
       <Router>
           <Switch>
-            <Route path="/LandingPage">
-              <LandingPage />
-            </Route>
-            <Route path="/WeatherPage">
-              <WeatherPage />
-            </Route>
-            <Route path="/TodoPage">
-              <TodoPage />
-            </Route>
-            <Redirect from='/' to='/LandingPage'/>
+            <Route path={ROUTES.LANDING} component={LandingPage} />
+            <Route path={ROUTES.WEATHER} component={WeatherPage} />
+            <Route path={ROUTES.TODOPAGE} component={TodoPage} />
+            <Redirect from="/" to={ROUTES.LANDING} />
           </Switch>
         </Router>
     </div>

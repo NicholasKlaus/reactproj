@@ -9,25 +9,18 @@ import { useLocation } from 'react-router-dom';
 
 
 export const WeatherPage = () => {
-  const { REACT_APP_API_KEY, REACT_APP_API_URL } = process.env;
-  const url = `${REACT_APP_API_URL}${REACT_APP_API_KEY}`;
+  const { REACT_APP_API_KEY, REACT_APP_API_URL, REACT_APP_API_OPT } = process.env;
+  let query = useQuery();
+  let lon = query.get('lon');
+  let lat = query.get('lat')
+  let coord= `lat=${lat}&lon=${lon}`;
+  const url = `${REACT_APP_API_URL}${coord}${REACT_APP_API_OPT}${REACT_APP_API_KEY}`;
   const [weatherData, setWeatherData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [weekDay, setWeekDay] = useState(null);
   const [weekDayDate, setWeekDayDate] = useState(null);
 
-
-
-
-  function useQuery() {
-    return new URLSearchParams(useLocation().search);
-  }
-
-  let query = useQuery();
-
-  let coords = query.get('coord');
-  console.log(coords);
-
+  console.log(url);
 
   useEffect(() => {
     if (weatherData.length && weatherData[0].dt) {
@@ -54,6 +47,14 @@ export const WeatherPage = () => {
         throw new Error(err.message)
       });
   }
+
+  function useQuery() {
+    return new URLSearchParams(useLocation().search);
+  }
+
+  
+  console.log(lon);
+  console.log(lat);
   
   return (
     <div className="weather">

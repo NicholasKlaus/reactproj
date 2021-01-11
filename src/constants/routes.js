@@ -1,3 +1,5 @@
-export const ROUTES = {
-    WEATHER: '/WeatherPage?coord='
+export const ROUTES= {
+  WEATHER: "/weather-page",
+  LANDING: "/LandingPage",
+  TODOPAGE: "/TodoPage"
 }
