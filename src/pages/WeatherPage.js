@@ -9,18 +9,12 @@ import { useLocation } from 'react-router-dom';
 
 
 export const WeatherPage = () => {
-  const { REACT_APP_API_KEY, REACT_APP_API_URL, REACT_APP_API_OPT } = process.env;
-  let query = useQuery();
-  let lon = query.get('lon');
-  let lat = query.get('lat')
-  let coord= `lat=${lat}&lon=${lon}`;
-  const url = `${REACT_APP_API_URL}${coord}${REACT_APP_API_OPT}${REACT_APP_API_KEY}`;
+  const {REACT_APP_API_URL, REACT_APP_API_KEY, REACT_APP_API_OPT} = process.env;
+  const url = `https://api.openweathermap.org/data/2.5/onecall?lat=48.548531&lon=22.995781&units=metric&exclude=current,minutely,hourly&appid=3b71725b59ef23dd71e0c2b33a1e16ee`;
   const [weatherData, setWeatherData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [weekDay, setWeekDay] = useState(null);
   const [weekDayDate, setWeekDayDate] = useState(null);
-
-  console.log(url);
 
   useEffect(() => {
     if (weatherData.length && weatherData[0].dt) {
@@ -51,8 +45,9 @@ export const WeatherPage = () => {
   function useQuery() {
     return new URLSearchParams(useLocation().search);
   }
-
-  
+  let query = useQuery();
+  let lon = query.get('lon');
+  let lat = query.get('lat')
   console.log(lon);
   console.log(lat);
   
