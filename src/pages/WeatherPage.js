@@ -9,12 +9,12 @@ import { useLocation } from 'react-router-dom';
 
 
 export const WeatherPage = () => {
-  const {REACT_APP_API_URL, REACT_APP_API_KEY, REACT_APP_API_OPT} = process.env;
+  const {REACT_APP_API_URL, REACT_APP_API_KEY} = process.env;
   const query = useQuery();
   const lon = query.get('lon');
   const lat = query.get('lat');
   const cityName = query.get('name');
-  const url = `${REACT_APP_API_URL}lat=${lat}&lon=${lon}${REACT_APP_API_OPT}${REACT_APP_API_KEY}`;
+  const url = `${REACT_APP_API_URL}onecall?lat=${lat}&lon=${lon}&units=metric&exclude=current,minutely,hourly&appid=${REACT_APP_API_KEY}`;
   const [weatherData, setWeatherData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [weekDay, setWeekDay] = useState(null);
