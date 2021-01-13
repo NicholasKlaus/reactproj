@@ -1,65 +1,94 @@
 .container{
-    width: unset!important;
-    max-width: 1170px!important;
+  width: unset!important;
+  max-width: 1170px!important;
 }
 
 .landing{
-    height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../components/MainLayout/bg.jpg");
+}
+
+.header{
+  padding-top: 50px;
+  color: #fff;
+  text-align: center;
 }
 
 .l-body{
-    padding: 200px 0 100px 0;
+  padding: 125px 0 100px 0;
 }
 
 .autocomplete-seach__wrap{
-    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
-    width: 750px;
-    margin: 0 auto;
-    border-radius: 10px;
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+  width: 750px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #fff;
 }
 
 .c-search_wrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .search-bar{
-    width: 100%;
-    padding: 8px 10px 8px 50px;
-    border: none;
-    box-sizing: border-box;
-    border-radius: 10px;
+  width: 100%;
+  padding: 8px 10px 8px 50px;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 10px;
 }
 
 .search-bar:focus{
-    outline: none;
+  outline: none;
 }
 
 .search-icon{
-    position: absolute;
-    z-index: 2;
-    left: 15px;
-    color: #9b9b9b;
+  position: absolute;
+  z-index: 2;
+  left: 15px;
+  color: #9b9b9b;
 }
 
 .dropdown-list {
-    list-style: none;
-    padding-left: 50px;
+  list-style: none;
+  padding-left: 50px;
 }
 
 .dropdown-list::before{
-    content: "";
+  content: "";
 }
 
 .list-item{
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-right: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 10px;
 }
 
 input::-webkit-search-decoration,
 input::-webkit-search-cancel-button,
 input::-webkit-search-results-button,
 input::-webkit-search-results-decoration { display: none; }
+
+@media (max-width: 768px){
+  .autocomplete-seach__wrap{
+    width: 570px;
+  }
+}
+
+@media (max-width: 576px){
+  .header{
+    padding-top: 25px;
+  }
+
+  .l-body{
+    padding: 30px 0 100px 0;
+  }
+
+  .autocomplete-seach__wrap{
+    width: 300px;
+  }
+}

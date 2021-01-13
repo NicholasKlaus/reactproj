@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  TodoPage,
   WeatherPage,
   LandingPage
 } from "./pages/index"
@@ -15,7 +14,6 @@ function App () {
           <Switch>
             <Route path={ROUTES.LANDING} component={LandingPage} />
             <Route path={ROUTES.WEATHER} component={WeatherPage} />
-            <Route path={ROUTES.TODOPAGE} component={TodoPage} />
             <Redirect from="/" to={ROUTES.LANDING} />
           </Switch>
         </Router>

@@ -10,7 +10,11 @@ import { useLocation } from 'react-router-dom';
 
 export const WeatherPage = () => {
   const {REACT_APP_API_URL, REACT_APP_API_KEY, REACT_APP_API_OPT} = process.env;
-  const url = `https://api.openweathermap.org/data/2.5/onecall?lat=48.548531&lon=22.995781&units=metric&exclude=current,minutely,hourly&appid=3b71725b59ef23dd71e0c2b33a1e16ee`;
+  const query = useQuery();
+  const lon = query.get('lon');
+  const lat = query.get('lat');
+  const cityName = query.get('name');
+  const url = `${REACT_APP_API_URL}lat=${lat}&lon=${lon}${REACT_APP_API_OPT}${REACT_APP_API_KEY}`;
   const [weatherData, setWeatherData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [weekDay, setWeekDay] = useState(null);
@@ -45,12 +49,7 @@ export const WeatherPage = () => {
   function useQuery() {
     return new URLSearchParams(useLocation().search);
   }
-  let query = useQuery();
-  let lon = query.get('lon');
-  let lat = query.get('lat')
-  console.log(lon);
-  console.log(lat);
-  
+
   return (
     <div className="weather">
       <MainLayout>
@@ -83,7 +82,9 @@ export const WeatherPage = () => {
                   </div>
                 </Col>
                 <Col sm={6}>
-                  <h1 className="w-data_city-name">Svalyava</h1>
+                  <div className="city-name__wrap">
+                    <h1 className="w-data_city-name">{cityName}</h1>
+                  </div>
                 </Col>
               </Row>
             </div>

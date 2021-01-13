@@ -18,10 +18,9 @@ export const LandingPage = () => {
   return(
     <div className="landing">
       <div className="container">
-        <header>
+        <header className="header">
           <h1>Weather App</h1>
-        </header>
-                
+        </header>   
         <div className="l-body">
           <div className="autocomplete-seach__wrap">
             <div className="c-search_wrapper">
@@ -39,8 +38,8 @@ export const LandingPage = () => {
               {   
                 filteredCities.map((el, key) => {
                   return (
-                    <li className="list-item"> 
-                      <Link to={`${ROUTES.WEATHER}?lon=${el.coord.lon}&lat=${el.coord.lat}`} >
+                    <li className="list-item" key={key}> 
+                      <Link to={`${ROUTES.WEATHER}?name=${el.name}&lon=${el.coord.lon}&lat=${el.coord.lat}`} >
                         {el.name}, {el.country}
                       </Link> 
                     </li>
