@@ -3,9 +3,11 @@ import { Row, Col, Spinner } from 'react-bootstrap';
 import {
   MainLayout,
   CardList,
+  ErrorMessage,
 } from "../components/index";
 import { formatWeekDay, formatDate } from '../helpers/timeHelper';
 import { useLocation } from 'react-router-dom';
+
 
 
 export const WeatherPage = () => {
@@ -19,6 +21,7 @@ export const WeatherPage = () => {
   const [loading, setLoading] = useState(true);
   const [weekDay, setWeekDay] = useState(null);
   const [weekDayDate, setWeekDayDate] = useState(null);
+  const [wReqFail, setWReqFail] = useState(false);
 
   useEffect(() => {
     if (weatherData.length && weatherData[0].dt) {
@@ -39,11 +42,12 @@ export const WeatherPage = () => {
 
   function getAnotherWeather() {
     fetch(url)
-      .then(res => res.json())
-      .then(weather => setWeatherData(weather.daily))
-      .catch(err => {
-        throw new Error(err.message)
-      });
+    .then(res => res.json())
+    .then(weather => setWeatherData(weather.daily))
+    .catch(err => {
+      console.log(err.message);
+      setWReqFail(true);
+    });
   }
 
   function useQuery() {
@@ -54,7 +58,11 @@ export const WeatherPage = () => {
     <div className="weather">
       <MainLayout>
         <div className="container">
-          <div className='w-body'>
+          {
+            wReqFail ?
+              <ErrorMessage />
+            :
+            <div className='w-body'>
             {loading && <Spinner/>}
             <div className="w-body__top">
               <Row>
@@ -73,9 +81,15 @@ export const WeatherPage = () => {
                               <h2 className="w-data_temperature">Day {Math.round(weatherData[0].temp.day)}&deg;C</h2>
                               <h3 className="w-data_temp-feels">Feels like { Math.round(weatherData[0].feels_like.day) }&deg;C</h3> 
                             </li>
-                            <li> <h4 className="w-data">Humidity - { weatherData[0].humidity }%</h4> </li>
-                            <li> <h4 className="w-data">Air Pressure - { weatherData[0].pressure }ps</h4> </li>
-                            <li> <h4 className="w-data">Wind Speed - {weatherData[0].wind_speed }km/h</h4> </li>
+                            <li>
+                              <h4 className="w-data">Humidity - { weatherData[0].humidity }%</h4> 
+                            </li>
+                            <li>
+                              <h4 className="w-data">Air Pressure - { weatherData[0].pressure }ps</h4> 
+                            </li>
+                            <li>
+                              <h4 className="w-data">Wind Speed - {weatherData[0].wind_speed }km/h</h4> 
+                            </li>
                           </ul>
                         )
                     }
@@ -91,7 +105,9 @@ export const WeatherPage = () => {
             <div className="w-body__bottom">
               <CardList data={ weatherData }/>
             </div>
-          </div>
+          </div> 
+          }
+
         </div>
       </MainLayout>
     </div>

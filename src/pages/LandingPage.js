@@ -7,7 +7,7 @@ export const LandingPage = () => {
   const [filteredCities, setFilteredCities] = useState([]);
 
   const onInput = (event) => {
-    let filtredData = cities.filter(el =>  el.name.startsWith(event.target.value)).slice(0,10)
+    let filtredData = cities.filter(({name}) =>  name.startsWith(event.target.value)).slice(0,10)
     if (!event.target.value) {
       setFilteredCities([]);
     } else {
