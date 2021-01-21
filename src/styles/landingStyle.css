@@ -55,21 +55,34 @@
 
 .dropdown-list {
   list-style: none;
-  padding-left: 50px;
+  padding-left: 0;
 }
 
 .dropdown-list::before{
   content: "";
 }
 
+.list-item__link{
+  color: black;
+  text-decoration: none!important;
+}
+
 .list-item{
   padding-top: 8px;
   padding-bottom: 8px;
   padding-right: 10px;
+  padding-left: 50px;
+  color: black;
 }
 
-.list-item:hover{
-  background-color: rgb(190, 189, 189);
+.item-wrap{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.item-wrap:hover{
+  background-color: rgb(206, 206, 206);
 }
 
 input::-webkit-search-decoration,

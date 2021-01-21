@@ -38,11 +38,17 @@ export const LandingPage = () => {
               {   
                 filteredCities.map((el, key) => {
                   return (
-                    <li className="list-item" key={key}> 
-                      <Link to={`${ROUTES.WEATHER}?name=${el.name}&lon=${el.coord.lon}&lat=${el.coord.lat}`} >
-                        {el.name}, {el.country}
-                      </Link> 
-                    </li>
+                    <Link to={`${ROUTES.WEATHER}?name=${el.name}&lon=${el.coord.lon}&lat=${el.coord.lat}`}
+                      key={key}
+                      className="list-item__link"
+                    >
+                      <div className="item-wrap">
+                        <i className="icofont-search-2 search-icon"></i>
+                        <li className="list-item">
+                          {el.name}, {el.country}
+                        </li>
+                      </div>
+                    </Link> 
                   );
                 })
               }
