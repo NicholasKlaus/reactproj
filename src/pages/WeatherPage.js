@@ -42,7 +42,6 @@ export const WeatherPage = () => {
     .then(res => res.json())
     .then(weather => setWeatherData(weather.daily))
     .catch(err => {
-      console.log(err.message);
       setWReqFail(true);
     });
   }
