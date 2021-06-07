@@ -1,10 +1,7 @@
 import React from 'react';
-import {
-  WeatherPage,
-  LandingPage
-} from "./pages/index"
+import { WeatherPage, LandingPage } from "./pages/index"
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import {ROUTES} from "./constants/routes";
+import { ROUTES } from "./constants/routes";
 
 function App () {
   
@@ -19,7 +16,6 @@ function App () {
         </Router>
     </div>
   );
-
 }
 
 export default App;
